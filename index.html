@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUTIKAVTO — Калькулятор просмотров Reels</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header with BUTIKAVTO Logo -->
+    <header class="app-header">
+      <div class="logo-wrapper">
+        <img src="logo.jpg" alt="BUTIKAVTO — Сеть автохаусов" class="brand-logo">
+      </div>
+      <div class="header-title-badge">
+        Калькулятор просмотров Reels
+      </div>
+    </header>
+
+    <!-- 1 & 2: Поле ввода и кнопка посчитать -->
+    <main class="card">
+      <div class="input-header">
+        <div class="input-title">1. Вставьте содержимое</div>
+        <div class="input-actions-bar">
+          <button id="pasteBtn" class="btn-secondary" type="button">📋 Вставить</button>
+          <button id="clearBtn" class="btn-secondary" type="button">✕ Очистить</button>
+        </div>
+      </div>
+
+      <!-- 1. Поле куда нужно вставить содержимое -->
+      <div class="textarea-wrapper">
+        <textarea 
+          id="contentInput" 
+          placeholder="Вставьте сюда скопированный текст или HTML-код страницы со статистикой рилсов (Meta Business Suite, Facebook, Instagram)..."></textarea>
+      </div>
+
+      <!-- 2. Кнопка посчитать -->
+      <div class="action-row">
+        <button id="calculateBtn" class="btn-primary" type="button">
+          <span>⚡ Посчитать</span>
+        </button>
+      </div>
+
+      <!-- Опция: вычитать рекламу (только чистая органика) -->
+      <div class="options-row">
+        <label class="toggle-label" title="По умолчанию рекламные просмотры игнорируются. Если включить этот пункт, они будут вычтены для показа чистой органики.">
+          <input type="checkbox" id="subtractAdsToggle">
+          <span>Вычитать рекламу (считать только чистую органику)</span>
+        </label>
+      </div>
+    </main>
+
+    <!-- Results Section -->
+    <section class="results-grid">
+      <!-- 3. Элемент с количеством просмотров -->
+      <div class="stat-card hero-total">
+        <div class="stat-header">
+          <span class="stat-label">3. Количество просмотров</span>
+          <span class="stat-icon">👁</span>
+        </div>
+        <div class="stat-value" id="totalViews">0</div>
+        <div class="stat-subtext" id="totalViewsSubtext">
+          Суммарно по всем рилсам
+        </div>
+      </div>
+
+      <!-- 4. Элемент с наибольшим количеством просмотров рилса -->
+      <div class="stat-card hero-max">
+        <div class="stat-header">
+          <span class="stat-label">4. Наибольшее количество просмотров</span>
+          <span class="stat-icon">🔥</span>
+        </div>
+        <div class="stat-value" id="maxViews">0</div>
+        <div class="stat-subtext" id="maxViewsSubtext">
+          Самый популярный ролик
+        </div>
+      </div>
+    </section>
+
+    <!-- Details Table (appears after calculation) -->
+    <section class="details-card" id="detailsCard" style="display: none;">
+      <div class="details-title">Список распознанных рилсов</div>
+      <div class="table-container">
+        <table class="reels-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ролик</th>
+              <th>Просмотры</th>
+            </tr>
+          </thead>
+          <tbody id="reelsTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span id="toastIcon">✓</span>
+    <span id="toastMessage">Готово</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "viewscalc",
+  "version": "1.0.0",
+  "description": "Веб-приложение для подсчета просмотров рилсов из Meta Business Suite",
+  "main": "app.js",
+  "scripts": {
+    "start": "python3 -m http.server 3000",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "reels",
+    "meta",
+    "facebook",
+    "instagram",
+    "views-calculator",
+    "insights"
+  ],
+  "author": "",
+  "license": "MIT"
+}
